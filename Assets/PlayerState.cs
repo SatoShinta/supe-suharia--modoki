@@ -10,6 +10,7 @@ public class PlayerState : MonoBehaviour
     public int tenmetuCounter = 0;
     public int cloneCounter = 0;
     public int cloneCounter2 = 0;
+    private float timer;
     
     [SerializeField ,Header ("ヒットポイント")] private int hp = 0;
     [SerializeField] Text hpText;
@@ -28,11 +29,22 @@ public class PlayerState : MonoBehaviour
     {
         hpText.GetComponent<Text>().text = "HP : " + hp.ToString();
 
+        if (cloneCounter == 1)
+        {
+            timer += Time.deltaTime;
+            Debug.Log(timer);
+        }
 
         if (hp <= 0)
         {
             Destroy(gameObject);
             Debug.Log("ヤラレチャッタ");
+        }
+
+        if (timer >= 10f)
+        {
+            Destroy(clone);
+            cloneCounter = 0;
         }
     }
 
@@ -44,12 +56,14 @@ public class PlayerState : MonoBehaviour
             {
                 case 0:
                     hp++;
+                    Destroy(collision.gameObject);
                     break;
                 case 1:
                     if(cloneCounter == 0)
                     {
                         Instantiate(clone, new Vector3(transform.position.x + 3, transform.position.y, -4.66f), Quaternion.identity, transform.parent);
-                        Instantiate(clone, new Vector3(transform.position.x - 3, transform.position.y, -4.66f), Quaternion.identity, transform.parent); 
+                        Instantiate(clone, new Vector3(transform.position.x - 3, transform.position.y, -4.66f), Quaternion.identity, transform.parent);
+                        Destroy(collision.gameObject);
                         cloneCounter++;
                     }
                     break;
