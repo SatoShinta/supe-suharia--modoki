@@ -976,22 +976,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6481912665812490836, guid: d348fc095a744ed4fb58f21128ee6f4e, type: 3}
-      propertyPath: m_Size.x
-      value: 1.2418222
-      objectReference: {fileID: 0}
-    - target: {fileID: 6481912665812490836, guid: d348fc095a744ed4fb58f21128ee6f4e, type: 3}
-      propertyPath: m_Size.z
-      value: 0.45126247
-      objectReference: {fileID: 0}
-    - target: {fileID: 6481912665812490836, guid: d348fc095a744ed4fb58f21128ee6f4e, type: 3}
-      propertyPath: m_Center.x
-      value: -0.0023919344
-      objectReference: {fileID: 0}
-    - target: {fileID: 6481912665812490836, guid: d348fc095a744ed4fb58f21128ee6f4e, type: 3}
-      propertyPath: m_Center.z
-      value: -0.0058341026
-      objectReference: {fileID: 0}
     - target: {fileID: 6556589398983922877, guid: d348fc095a744ed4fb58f21128ee6f4e, type: 3}
       propertyPath: m_Name
       value: PowerUPx

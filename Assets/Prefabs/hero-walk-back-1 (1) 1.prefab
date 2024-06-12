@@ -210,4 +210,3 @@ MonoBehaviour:
   hpText: {fileID: 0}
   itemBoxManager: {fileID: 0}
   clone: {fileID: 1641039015163374110, guid: 0608f89d5292a1f45b0190ea8599806e, type: 3}
-  clone2: {fileID: 0}
