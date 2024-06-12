@@ -11,12 +11,18 @@ public class PlayerState : MonoBehaviour
     public int cloneCounter = 0;
     public int cloneCounter2 = 0;
     private float timer;
-    
+    private float timer2;
+    private GameObject instantiatedClone;
+    private GameObject instantiatedClone2;
+    private GameObject instantiatedClone3;
+    private GameObject instantiatedClone4;
+
     [SerializeField ,Header ("ヒットポイント")] private int hp = 0;
     [SerializeField] Text hpText;
     [SerializeField] GameObject itemBoxManager;
     [SerializeField, Header("クローン")] GameObject clone;
 
+    
 
     public void Start()
     {
@@ -32,7 +38,10 @@ public class PlayerState : MonoBehaviour
         if (cloneCounter == 1)
         {
             timer += Time.deltaTime;
-            Debug.Log(timer);
+        }
+        if (cloneCounter2 == 1)
+        {
+            timer2 += Time.deltaTime;
         }
 
         if (hp <= 0)
@@ -43,8 +52,15 @@ public class PlayerState : MonoBehaviour
 
         if (timer >= 10f)
         {
-            Destroy(clone);
+            Destroy(instantiatedClone);
+            Destroy(instantiatedClone2);
             cloneCounter = 0;
+        }
+        if(timer2 >= 10f)
+        {
+            Destroy(instantiatedClone3);
+            Destroy(instantiatedClone4);
+            cloneCounter2 = 0;
         }
     }
 
@@ -61,8 +77,8 @@ public class PlayerState : MonoBehaviour
                 case 1:
                     if(cloneCounter == 0)
                     {
-                        Instantiate(clone, new Vector3(transform.position.x + 3, transform.position.y, -4.66f), Quaternion.identity, transform.parent);
-                        Instantiate(clone, new Vector3(transform.position.x - 3, transform.position.y, -4.66f), Quaternion.identity, transform.parent);
+                        instantiatedClone = Instantiate(clone, new Vector3(transform.position.x + 3, transform.position.y, -4.66f), Quaternion.identity, transform.parent);
+                        instantiatedClone2 = Instantiate(clone, new Vector3(transform.position.x - 3, transform.position.y, -4.66f), Quaternion.identity, transform.parent);
                         Destroy(collision.gameObject);
                         cloneCounter++;
                     }
@@ -70,8 +86,9 @@ public class PlayerState : MonoBehaviour
                 case 2:
                     if(cloneCounter2 == 0)
                     {
-                        Instantiate(clone, new Vector3(transform.position.x , transform.position.y +2, -4.66f), Quaternion.identity, transform.parent);
-                        Instantiate(clone, new Vector3(transform.position.x , transform.position.y -3 , -4.66f), Quaternion.identity, transform.parent);
+                        instantiatedClone3 = Instantiate(clone, new Vector3(transform.position.x , transform.position.y +2, -4.66f), Quaternion.identity, transform.parent);
+                        instantiatedClone4 = Instantiate(clone, new Vector3(transform.position.x , transform.position.y -3 , -4.66f), Quaternion.identity, transform.parent);
+                        Destroy(collision.gameObject);
                         cloneCounter2++;
                     }
                     break;
