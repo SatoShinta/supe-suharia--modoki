@@ -30,7 +30,7 @@ public class EnemyDestroy : MonoBehaviour
             counter++;
         }
 
-        if (counter >= 3)
+        if (counter >= 4)
         {
             Destroy(gameObject);
         }
