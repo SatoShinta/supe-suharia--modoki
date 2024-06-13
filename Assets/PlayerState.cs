@@ -26,24 +26,32 @@ public class PlayerState : MonoBehaviour
 
     public void Start()
     {
-       Vector3 clonePos = GetComponent<Transform>().position;
+      
     }
 
 
 
     private void Update()
     {
+        //画面に表示するHPの値
         hpText.GetComponent<Text>().text = "HP : " + hp.ToString();
 
+        //cloneCounterの値が1の時
         if (cloneCounter == 1)
         {
+            //timerのカウント（現実時間）を増やしていく
             timer += Time.deltaTime;
         }
+
+        //cloneCounter2の値が1の時
         if (cloneCounter2 == 1)
         {
+            //timer2のカウント（現実時間）を増やしていく
             timer2 += Time.deltaTime;
         }
 
+
+        //hpの値が0より
         if (hp <= 0)
         {
             Destroy(gameObject);
