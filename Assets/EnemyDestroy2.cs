@@ -24,6 +24,10 @@ void Update()
     {
         Destroy(gameObject);
     }
+        if (counter >= 5)
+        {
+            Destroy(gameObject);
+        }
 }
 
 
@@ -35,9 +39,6 @@ private void OnCollisionEnter(Collision collision)
         counter++;
     }
 
-    if (counter >= 5)
-    {
-        Destroy(gameObject);
-    }
-}
+
+        }
 }
