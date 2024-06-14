@@ -10,8 +10,12 @@ public class PlayerState : MonoBehaviour
     public int tenmetuCounter = 0;
     public int cloneCounter = 0;
     public int cloneCounter2 = 0;
+    public int cloneCounter3 = 0;
+
     private float timer;
     private float timer2;
+    private float timer3;
+
     private GameObject instantiatedClone;
     private GameObject instantiatedClone2;
     private GameObject instantiatedClone3;
@@ -50,6 +54,12 @@ public class PlayerState : MonoBehaviour
             timer2 += Time.deltaTime;
         }
 
+        if (cloneCounter3 == 1)
+        {
+            //timer2のカウント（現実時間）を増やしていく
+            timer3 += Time.deltaTime;
+        }
+
 
         //hpの値が0より
         if (hp <= 0)
@@ -70,7 +80,15 @@ public class PlayerState : MonoBehaviour
             Destroy(instantiatedClone4);
             cloneCounter2 = 0;
         }
+        if(timer3 >= 10f)
+        {
+            Destroy(instantiatedClone3);
+            Destroy(instantiatedClone4);
+            cloneCounter3 = 0;
+        }
     }
+
+
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -101,8 +119,14 @@ public class PlayerState : MonoBehaviour
                     }
                     break;
                 case 3:
-                    GetComponent<EnemyDestroy>().counter = 1;
+                    if(cloneCounter3 == 0)
+                    {
+                        GetComponent<EnemyDestroy>().counter = 1;
+                        Destroy(collision.gameObject);
+                        cloneCounter3++;
+                    }
                     break;
+                    
             }
         }
 
