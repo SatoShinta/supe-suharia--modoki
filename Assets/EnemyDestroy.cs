@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyDestroy : MonoBehaviour
 {
-    public float counter;
+    [SerializeField] public float counter;
     // Start is called before the first frame update
     void Start()
     {
