@@ -118,6 +118,8 @@ public class EnemyGenerater : MonoBehaviour
         Instantiate(enemy2, new Vector3(-2, 4, 4), Quaternion.identity);
         Instantiate(enemy2, new Vector3(10, 2, 2), Quaternion.identity);
         Instantiate(enemy2, new Vector3(-10, 2, 2), Quaternion.identity);
+        Instantiate(enemy2, new Vector3(-10, 9, 2), Quaternion.identity);
+        Instantiate(enemy2, new Vector3(-10, 9, 2), Quaternion.identity);
     }
 
     void TreeGenerater()
