@@ -41,7 +41,7 @@ public class PlayerState : MonoBehaviour
     {
         //‰æ–Ê‚É•\Ž¦‚·‚éHP‚Ì’l
         hpText.GetComponent<Text>().text = "HP : " + hp.ToString();
-        Debug.Log(Time.deltaTime);
+        Debug.Log(Time.time);
 
         //cloneCounter‚Ì’l‚ª1‚ÌŽž
         if (cloneCounter == 1)
