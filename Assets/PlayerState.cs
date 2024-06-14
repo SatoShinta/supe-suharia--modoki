@@ -20,6 +20,7 @@ public class PlayerState : MonoBehaviour
     private GameObject instantiatedClone2;
     private GameObject instantiatedClone3;
     private GameObject instantiatedClone4;
+    private EnemyDestroy enemyDestroyCounter;
 
     [SerializeField ,Header ("ヒットポイント")] private int hp = 0;
     [SerializeField] Text hpText;
@@ -30,7 +31,8 @@ public class PlayerState : MonoBehaviour
 
     public void Start()
     {
-      
+        GameObject obj = GameObject.FindGameObjectWithTag("Enemy");
+        enemyDestroyCounter = obj.GetComponent<EnemyDestroy>();
     }
 
 
@@ -39,6 +41,7 @@ public class PlayerState : MonoBehaviour
     {
         //画面に表示するHPの値
         hpText.GetComponent<Text>().text = "HP : " + hp.ToString();
+        Debug.Log(Time.deltaTime);
 
         //cloneCounterの値が1の時
         if (cloneCounter == 1)
@@ -54,11 +57,6 @@ public class PlayerState : MonoBehaviour
             timer2 += Time.deltaTime;
         }
 
-        if (cloneCounter3 == 1)
-        {
-            //timer2のカウント（現実時間）を増やしていく
-            timer3 += Time.deltaTime;
-        }
 
 
         //hpの値が0より
@@ -80,12 +78,7 @@ public class PlayerState : MonoBehaviour
             Destroy(instantiatedClone4);
             cloneCounter2 = 0;
         }
-        if(timer3 >= 10f)
-        {
-            Destroy(instantiatedClone3);
-            Destroy(instantiatedClone4);
-            cloneCounter3 = 0;
-        }
+      
     }
 
 
@@ -112,19 +105,16 @@ public class PlayerState : MonoBehaviour
                 case 2:
                     if(cloneCounter2 == 0)
                     {
-                        instantiatedClone3 = Instantiate(clone, new Vector3(transform.position.x , transform.position.y +2, -4.66f), Quaternion.identity, transform.parent);
+                        instantiatedClone3 = Instantiate(clone, new Vector3(transform.position.x , transform.position.y +3 , -4.66f), Quaternion.identity, transform.parent);
                         instantiatedClone4 = Instantiate(clone, new Vector3(transform.position.x , transform.position.y -3 , -4.66f), Quaternion.identity, transform.parent);
                         Destroy(collision.gameObject);
                         cloneCounter2++;
                     }
                     break;
                 case 3:
-                    if(cloneCounter3 == 0)
-                    {
-                        GetComponent<EnemyDestroy>().counter = 1;
-                        Destroy(collision.gameObject);
-                        cloneCounter3++;
-                    }
+                    enemyDestroyCounter.counter++;
+                    Destroy(collision.gameObject);
+                    Debug.Log("aaaa");
                     break;
                     
             }
