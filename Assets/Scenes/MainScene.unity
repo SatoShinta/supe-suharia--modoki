@@ -856,7 +856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 3328151637961064746, guid: 51821d51eddd3e7418ca2be1bbb54e15, type: 3}
-  enemy2: {fileID: 7081889819890404088, guid: 4ff5706efbc0bd04986cf19277d55d9c, type: 3}
+  enemy2: {fileID: 2730255116722185990, guid: 66594ec904c687e44904d5ebd8c15bfa, type: 3}
   tree: {fileID: 4448354564818570658, guid: 0c0c874e1a9c0de4595d94dda3dca663, type: 3}
   generateInterval: 2
   generateInterval2: 3
