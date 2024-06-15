@@ -119,16 +119,21 @@ public class PlayerState : MonoBehaviour
                         cloneCounter++;
                     }
                     break;
+                //それが2だったら
                 case 2:
+                    //cloneCounterの値が０の時
                     if(cloneCounter2 == 0)
                     {
+                        //縦方向にcloneを2体発生させ、当たったobjectを破壊し、cloneCounterの値を1増やす
                         instantiatedClone3 = Instantiate(clone, new Vector3(transform.position.x , transform.position.y +3 , -4.66f), Quaternion.identity, transform.parent);
                         instantiatedClone4 = Instantiate(clone, new Vector3(transform.position.x , transform.position.y -3 , -4.66f), Quaternion.identity, transform.parent);
                         Destroy(collision.gameObject);
                         cloneCounter2++;
                     }
                     break;
+                //それが3だったら
                 case 3:
+                    //enemyDestroyCounterのcounterを1増やし、当たったobjectを破壊する
                     enemyDestroyCounter.counter++;
                     Destroy(collision.gameObject);
                     Debug.Log("aaaa");
@@ -137,11 +142,13 @@ public class PlayerState : MonoBehaviour
             }
         }
 
+        //もしisDamageフラグとcoloutinOKフラグがtrueだった時、
         if (isDamage && !coloutinOK)
         {
-
+            //Enemyタグ、Treeタグを持つobjectに当たったら
             if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Tree")
             {
+                //DamageCoroutinを呼び出し、hpを1減少させる
                 StartCoroutine(DamageCoroutin());
                 Debug.Log("敵に当たった");
                 hp--;
@@ -153,18 +160,23 @@ public class PlayerState : MonoBehaviour
 
     private IEnumerator DamageCoroutin()
     {
+        //スプライトレンダラーコンポーネントを取ってくる
         Renderer renderer = GetComponent<Renderer>();
+        //isDamageフラグとcolotinOKフラグをtrueにし、tenmetuCounterをリセットする
         isDamage = true ;
         coloutinOK = true ;
         tenmetuCounter = 0;
+        //tenmetuCounterの値が5未満だった時、
         while (tenmetuCounter < 5)
         {
             //レンダラーコンポーネントの有効、無効を切り替える
             renderer.enabled = !renderer.enabled;
             //0.3秒ずつ
             yield return new WaitForSeconds(0.3f);
+            //tenmetuCounterを増加させる
             tenmetuCounter++;
         }
+        //
         renderer.enabled = true ;
         coloutinOK = false;
 
