@@ -19,9 +19,13 @@ public class BulletShooter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //timerに一秒ずつ数値を追加する
         timer += Time.deltaTime;
+
+        //timerの値がshootTimerよりも大きくなったら
         if(timer >= shootTimer)
         {
+            //shootBulletメソッドを使用し、timerの値を0にする
             shootBullet();
             timer = 0;
         }
@@ -33,10 +37,15 @@ public class BulletShooter : MonoBehaviour
         //スペースキーが押されたとき
         if (Input.GetKey(KeyCode.Space))
         {
+            //GameObject型のshootBullet変数に生成する弾をセットする
            GameObject shootBullet = Instantiate(bullet, transform.position, Quaternion.identity);
+
+            //セットした弾のRigidBodyを取得し
             Rigidbody bulletRigitbody = shootBullet.GetComponent<Rigidbody>();
+
             if (bulletRigitbody != null )
             {
+                //弾の加速度（ｚ軸）にbulletSpeedを掛ける
                 bulletRigitbody.velocity =new Vector3(0, 0, 1 * bulletSpeed);
             }
      

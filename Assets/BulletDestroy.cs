@@ -13,16 +13,20 @@ public class BulletDestroy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //もしこのオブジェクトがz軸の座標が80を超えたら
         if(transform.position.z >= 80)
         {
+            //破壊する
             Destroy(gameObject);
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        //もしEnemyタグかTreeタグを持ったオブジェクトに当たったら
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Tree")
         {
+            //破壊する
             Destroy(gameObject);
         }
     }
