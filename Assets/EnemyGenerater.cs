@@ -40,48 +40,66 @@ public class EnemyGenerater : MonoBehaviour
         numEnemy2 += Time.deltaTime;
         elapsedTime += Time.deltaTime;
 
+        //isTreeGenerateがfalseの時
         if (isTreeGenerate)
         {
+            //numTree が treeGenerateInterval より大きくなるか、elapsedTime が  stopTime を上回った時
             if (numTree >= treeGenerateInterval && elapsedTime >= stopTime)
             {
+                //TreeGeneraterメソッドを呼び出し、numTreeの値を0にする
                 TreeGenerater();
                 numTree = 0;
             }
         }
-       
 
+
+        //isGenerateがfalseの時
         if (isGenerate)
         {
+            //numEnemy1 が generateIntervalを上回った時
             if (numEnemy1 >= generateInterval)
             {
+                //EnemyGenerater1を呼び出し、numEnemyに0を代入する
                 EnemyGenerater1();
                 numEnemy1 = 0;
             }
 
+            //numEnemy12 が generateInterval2 を上回った時
             if (numEnemy12 >= generateInterval2)
             {
+                //EnemyGenerater2　を呼び出し、 numEnemy12 に0を代入する
                 EnemyGenerater2();
                 numEnemy12 = 0;
             }
         }
 
+        //isGenerate2 がtureで、 numEnemy2 が generateInterval3 を上回り、 elapsedTime が treeStopTimeに2を足した数を上回った時
         if (isGenerate2 == true)
             if(numEnemy2 >= generateInterval3 && elapsedTime >= treeStopTime + 2)
         {
-            EnemyGenerater3();
+                //EnemyGenerater3 を呼び出し、 numEnemy2に0を代入する
+                EnemyGenerater3();
             numEnemy2 = 0;
         }
-       
-        
+
+
+        //elapsedTime が　stopTime を上回った時
         if (elapsedTime >= stopTime)
         {
+            //isGanarateフラグをfalseにする
             isGenerate = false;
+
+            //elapsedTime　が　treeStopTime　を上回った時
             if (elapsedTime >= treeStopTime)
             {
+                //isTreeGenerateフラグをfalseにする
                 isTreeGenerate = false;
             }
-            if(elapsedTime >= stopTime2)
+
+            //elapsedTime　が　stopTime2　を上回った時
+            if (elapsedTime >= stopTime2)
             {
+                //isGanarate2フラグをfalseにする
                 isGenerate2 = false;
             }
         }

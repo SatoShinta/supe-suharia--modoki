@@ -162,10 +162,12 @@ public class PlayerState : MonoBehaviour
     {
         //スプライトレンダラーコンポーネントを取ってくる
         Renderer renderer = GetComponent<Renderer>();
+
         //isDamageフラグとcolotinOKフラグをtrueにし、tenmetuCounterをリセットする
         isDamage = true ;
         coloutinOK = true ;
         tenmetuCounter = 0;
+
         //tenmetuCounterの値が5未満だった時、
         while (tenmetuCounter < 5)
         {
@@ -176,7 +178,7 @@ public class PlayerState : MonoBehaviour
             //tenmetuCounterを増加させる
             tenmetuCounter++;
         }
-        //
+        //Rendererコンポーネントを有効にし、 coloutinOK フラグをfalseにする
         renderer.enabled = true ;
         coloutinOK = false;
 

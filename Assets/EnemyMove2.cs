@@ -22,14 +22,20 @@ public class EnemyMove2 : MonoBehaviour
         timer += Time.deltaTime;
         elapsedTime += Time.deltaTime;
 
+        //スポーンしてから0.5秒たったら
         if (elapsedTime >= 0.5)
         {
+            //movebackフラグが true だったら
             if(moveback == true)
             {
+                //MoveSide メソッドを呼び出す
                 MoveSide();
             }
+            
+            //movebackフラグが false で、6秒時間がたったら
             if(moveback == false && timer >= 6)
             {
+                //MoveBackメソッドを呼び出す
                 MoveBack();
             }
             
@@ -38,6 +44,10 @@ public class EnemyMove2 : MonoBehaviour
 
     private void MoveSide()
     {
+
+        //x軸は10以上の値になったら反対の方向に力を加え、
+        //y軸は上が10以上、下が0以下の値になったら反対の方向に力が加わるようにした
+
         transform.Translate(enemySpeed　* Time.deltaTime , enemySpeed2 * Time.deltaTime, 0);
         if (transform.position.x <= -10)
         {
@@ -55,8 +65,12 @@ public class EnemyMove2 : MonoBehaviour
         {
             enemySpeed2 *= -1;
         }
+        
+        //スポーンしてから5秒たったら
         if( timer >= 5)
         {
+            //movebackフラグをfalseにし、動きを止めて
+            //MoveBackメソッドで使用するenemySpeed変数に値を代入する
             moveback = false;
             enemySpeed = 15;
             enemySpeed2 = 0;
@@ -75,6 +89,7 @@ public class EnemyMove2 : MonoBehaviour
 
     private void MoveBack()
     {
+        //player側に向かってくるようにする
         transform.Translate(Vector3.back * enemySpeed * 2 * Time.deltaTime);
     }
 }

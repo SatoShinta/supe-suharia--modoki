@@ -16,10 +16,13 @@ public class EnemyMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //経過時間を取得する
         elapsedTime += Time.deltaTime;
 
+        //経過時間が0.5秒以上たったら
         if (elapsedTime >= 0.5)
         {
+            //MoveBackメソッドを呼び出す
             MoveBack();
         } 
     }
@@ -27,6 +30,7 @@ public class EnemyMove : MonoBehaviour
 
     private void MoveBack()
     {
+        //オブジェクトの位置をz軸の後ろ向きに　enemySpeed　の速さで動くようにする
         transform.Translate(Vector3.back * enemySpeed * Time.deltaTime);
     }
 }
