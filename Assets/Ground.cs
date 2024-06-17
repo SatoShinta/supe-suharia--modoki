@@ -13,12 +13,14 @@ public class Ground : MonoBehaviour
     {
         //このオブジェクトにアタッチされたRendereコンポーネントを取得する
       Renderer renderer = GetComponent<Renderer>();
+
         //もしRendererコンポーネントが見つかったばあい
         if (renderer != null)
         {
             //このオブジェクトのマテリアルを変数に取得する
             material = renderer.material;
         }
+
         //もし見つからなかった場合（null）
         else
         {

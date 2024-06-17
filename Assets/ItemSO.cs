@@ -5,6 +5,10 @@ using UnityEngine;
 [CreateAssetMenu]
 public class ItemSO : ScriptableObject
 {
+
+    //Œ‹‹Ç‚±‚ê‚ÍŽg‚¢‚Ü‚¹‚ñ‚Å‚µ‚½...
+
+
     public List<Items> itemList = new List<Items>();
 
 

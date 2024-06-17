@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ItemBoxmaneger : MonoBehaviour
 {
+
+
+
     [SerializeField] ItemSO itemSO;
     public int getItem;
     private int[] itemQtyAry;//各アイテムの所持数を格納する配列
