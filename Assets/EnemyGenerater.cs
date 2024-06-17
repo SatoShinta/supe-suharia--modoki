@@ -15,6 +15,9 @@ public class EnemyGenerater : MonoBehaviour
     [SerializeField, Header("生成終了時間")] float stopTime2;
     [SerializeField, Header("木の生成終了時間")] float treeStopTime;
     [SerializeField, Header("木の生成終了時間2")] float treeStopTime2;
+    [SerializeField, Header("木の生成終了時間3")] float treeStopTime3;
+    [SerializeField, Header("木の生成終了時間4")] float treeStopTime4;
+    [SerializeField, Header("木の生成終了時間5")] float treeStopTime5;
 
     float numEnemy01 = 0;
     float numEnemy02 = 0;
@@ -25,8 +28,10 @@ public class EnemyGenerater : MonoBehaviour
     bool isGenerate = true;
     bool isGenerate2 = true;
     bool isTreeGenerate = true;
-   public bool isTreeTreeGenerate2;
+    bool isTreeTreeGenerate2;
     bool isTreeTreeGenerate3;
+    bool isTreeTreeGenerate4;
+    bool isTreeTreeGenerate5;
 
    
 
@@ -51,15 +56,35 @@ public class EnemyGenerater : MonoBehaviour
             }
         }
 
+        if (isTreeTreeGenerate3 == true && numTree >= treeGenerateInterval)
+        {
+            TreeGenerater3();
+            numTree = 0;
+        }
 
-        
+        if(isTreeTreeGenerate4 == true && numTree >= treeGenerateInterval)
+        {
+            TreeGenerater4();
+            numTree = 0;
+        }
+
+        if(isTreeTreeGenerate5 == true && numTree >= treeGenerateInterval)
+        {
+            TreeGenerater5();
+            numTree = 0;
+        }
 
 
 
 
 
-        //isTreeGenerateがfalseの時
-        if (isTreeGenerate)
+
+
+
+        //頑張って作った処理
+
+            //isTreeGenerateがfalseの時
+            if (isTreeGenerate)
         {
             //numTree が treeGenerateInterval より大きくなるか、elapsedTime が  stopTime を上回った時
             if (numTree >= treeGenerateInterval && elapsedTime >= stopTime)
@@ -128,7 +153,29 @@ public class EnemyGenerater : MonoBehaviour
                 isTreeTreeGenerate3 = true;
                 isTreeTreeGenerate2 = false;
             }
+            
+            //elapsedTime が treeStopTime3 を上回った時
+            if (elapsedTime >= treeStopTime3)
+            {
+                //isTreeTreeGenerate4 をtureにし、 isTreeTreeGenerate3 をfalseにする
+                isTreeTreeGenerate4 = true;
+                isTreeTreeGenerate3 = false;
+            }
 
+            //elapsedTime が treeStopTime4 を上回った時
+            if (elapsedTime >= treeStopTime4)
+            {
+                //isTreeTreeGenerate4 をtureにし、 isTreeTreeGenerate3 をfalseにする
+                isTreeTreeGenerate5 = true;
+                isTreeTreeGenerate4 = false;
+            }
+            
+            //elapsedTime が treeStopTime4 を上回った時
+            if (elapsedTime >= treeStopTime5)
+            {
+                //isTreeTreeGenerate5 をfalseにする
+                isTreeTreeGenerate5 = false;
+            }
         }
 
 
@@ -182,7 +229,6 @@ public class EnemyGenerater : MonoBehaviour
     void TreeGenerater3()
     {
         Instantiate(tree, new Vector3(-4, 1, 70), Quaternion.identity);
-        Instantiate(tree, new Vector3(0, 1, 70), Quaternion.identity);
         Instantiate(tree, new Vector3(4, 1, 70), Quaternion.identity);
     }
 
@@ -195,6 +241,17 @@ public class EnemyGenerater : MonoBehaviour
         Instantiate(tree, new Vector3(2, -2, 70), Quaternion.identity);
         Instantiate(tree, new Vector3(4, -2, 70), Quaternion.identity);
         Instantiate(tree, new Vector3(7, -2, 70), Quaternion.identity);
+    }
+    
+    void TreeGenerater5()
+    {
+        Instantiate(tree, new Vector3(-7, 8, 70), Quaternion.Euler(0,0,180));
+        Instantiate(tree, new Vector3(-4, 8, 70), Quaternion.Euler(0, 0, 180));
+        Instantiate(tree, new Vector3(-2, 8, 70), Quaternion.Euler(0, 0, 180));
+        Instantiate(tree, new Vector3(0, 8, 70), Quaternion.Euler(0, 0, 180));
+        Instantiate(tree, new Vector3(2, 8, 70), Quaternion.Euler(0, 0, 180));
+        Instantiate(tree, new Vector3(4, 8, 70), Quaternion.Euler(0, 0, 180));
+        Instantiate(tree, new Vector3(7, 8, 70), Quaternion.Euler(0, 0, 180));
     }
 
 }

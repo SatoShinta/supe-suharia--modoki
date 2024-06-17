@@ -695,7 +695,9 @@ MonoBehaviour:
   stopTime2: 30
   treeStopTime: 15
   treeStopTime2: 40
-  isTreeTreeGenerate2: 0
+  treeStopTime3: 43
+  treeStopTime4: 46
+  treeStopTime5: 55
 --- !u!4 &1693000732
 Transform:
   m_ObjectHideFlags: 0
