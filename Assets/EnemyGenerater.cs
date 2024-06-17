@@ -170,7 +170,7 @@ public class EnemyGenerater : MonoBehaviour
                 isTreeTreeGenerate4 = false;
             }
             
-            //elapsedTime ‚ª treeStopTime4 ‚ðã‰ñ‚Á‚½Žž
+            //elapsedTime ‚ª treeStopTime5 ‚ðã‰ñ‚Á‚½Žž
             if (elapsedTime >= treeStopTime5)
             {
                 //isTreeTreeGenerate5 ‚ðfalse‚É‚·‚é

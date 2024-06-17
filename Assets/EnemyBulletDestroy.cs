@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletDestroy : MonoBehaviour
+public class EnemyBulletDestroy : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,7 +14,7 @@ public class BulletDestroy : MonoBehaviour
     void Update()
     {
         //もしこのオブジェクトがz軸の座標が80を超えたら
-        if(transform.position.z >= 80)
+        if(transform.position.z >= -10)
         {
             //破壊する
             Destroy(gameObject);
@@ -24,7 +24,7 @@ public class BulletDestroy : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         //もしEnemyタグかTreeタグを持ったオブジェクトに当たったら
-        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Tree")
+        if (collision.gameObject.tag == "Player")
         {
             //破壊する
             Destroy(gameObject);
