@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1b05c5a9ebaaa4e9e60f8373bee4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 30
+  enemySpeed: 0
 --- !u!114 &5965692456886919269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +150,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1991224420224541053, guid: d60641146af9e354183a63644b0b4821, type: 3}
-  player: {fileID: 6507158285245228044, guid: 32196518253c82f449e3987aa72925bf, type: 3}
+  player: {fileID: 0}
+  bulletSpeed: 1000
 --- !u!65 &5516418088411800362
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -5,7 +5,8 @@ using UnityEngine;
 public class EnemyGenerater : MonoBehaviour
 {
     [SerializeField,Header("敵のプレハブ")] GameObject enemy;
-    [SerializeField, Header("弾を発射する敵のプレハブ")] GameObject enemy2;
+    [SerializeField, Header("敵のプレハブ2")] GameObject enemy2;
+    [SerializeField, Header("弾を発射する敵のプレハブ")] GameObject bulletEnemy;
     [SerializeField,Header("木のプレハブ")] GameObject tree;
     [SerializeField, Header("生成間隔")] float generateInterval;
     [SerializeField, Header("生成間隔2")] float generateInterval2;
@@ -27,6 +28,8 @@ public class EnemyGenerater : MonoBehaviour
 
     bool isGenerate = true;
     bool isGenerate2 = true;
+    bool isGenerateBulletEnemy;
+
     bool isTreeGenerate = true;
     bool isTreeTreeGenerate2;
     bool isTreeTreeGenerate3;
@@ -72,6 +75,12 @@ public class EnemyGenerater : MonoBehaviour
         {
             TreeGenerater5();
             numTree = 0;
+        }
+
+        if(isGenerateBulletEnemy == true)
+        {
+            isGenerateBulletEnemy = false;
+            BulletEnemyGenerater();
         }
 
 
@@ -160,10 +169,11 @@ public class EnemyGenerater : MonoBehaviour
                 //isTreeTreeGenerate4 をtureにし、 isTreeTreeGenerate3 をfalseにする
                 isTreeTreeGenerate4 = true;
                 isTreeTreeGenerate3 = false;
+                isGenerateBulletEnemy = true;
             }
 
             //elapsedTime が treeStopTime4 を上回った時
-            if (elapsedTime >= treeStopTime4)
+            if (elapsedTime >= treeStopTime4 + 1)
             {
                 //isTreeTreeGenerate4 をtureにし、 isTreeTreeGenerate3 をfalseにする
                 isTreeTreeGenerate5 = true;
@@ -213,6 +223,16 @@ public class EnemyGenerater : MonoBehaviour
         Instantiate(enemy2, new Vector3(-10, 9, 2), Quaternion.identity);
         Instantiate(enemy2, new Vector3(-10, 9, 2), Quaternion.identity);
     }
+
+    void BulletEnemyGenerater()
+    {
+        Instantiate(bulletEnemy, new Vector3(-6,6,3), Quaternion.identity);
+        Instantiate(bulletEnemy, new Vector3(0,6,3), Quaternion.identity);
+        Instantiate(bulletEnemy, new Vector3(6,6,3), Quaternion.identity);
+    }
+
+
+
 
     void TreeGenerater()
     {
