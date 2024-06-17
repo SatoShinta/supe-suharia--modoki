@@ -6,8 +6,9 @@ public class EnemyShot : MonoBehaviour
 {
     [SerializeField, Header("敵の発射する弾")] GameObject bullet;
     [SerializeField,Header("狙うオブジェクト")]GameObject player;
+    [SerializeField,Header("発射場所")]GameObject mazzle;
     public float bulletSpeed = 10.0f;
-    float time = 1.0f;
+    float time = 1;
 
 
     private void Start()
@@ -35,10 +36,8 @@ public class EnemyShot : MonoBehaviour
     private void BulletShot()
     {
         //gameobject型のshootBullet変数に弾を生成する処理を格納し、
-        GameObject shootBullet = Instantiate(bullet, transform.position, Quaternion.identity);
-        Rigidbody rb = shootBullet.GetComponent<Rigidbody>();
-        //弾のRigidBodyコンポーネントを取得し、加速度を設定する
-        rb.velocity = new Vector3(0, 0, -1 * bulletSpeed);
-        Debug.LogError("deta");
+        GameObject shootBullet = Instantiate(bullet, mazzle.transform.position,Quaternion.identity);
+        shootBullet.GetComponent<Rigidbody>().velocity = transform.forward  * bulletSpeed ;
+        //Debug.LogError("aaa");
     }
 }

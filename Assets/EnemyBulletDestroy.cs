@@ -14,7 +14,7 @@ public class EnemyBulletDestroy : MonoBehaviour
     void Update()
     {
         //もしこのオブジェクトがz軸の座標が80を超えたら
-        if(transform.position.z >= -10)
+        if(transform.position.z <= -10)
         {
             //破壊する
             Destroy(gameObject);

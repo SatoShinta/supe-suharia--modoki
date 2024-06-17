@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 
 public class EnemyGenerater : MonoBehaviour
@@ -20,6 +21,7 @@ public class EnemyGenerater : MonoBehaviour
     [SerializeField, Header("–Ø‚Ì¶¬I—¹ŽžŠÔ4")] float treeStopTime4;
     [SerializeField, Header("–Ø‚Ì¶¬I—¹ŽžŠÔ5")] float treeStopTime5;
 
+
     float numEnemy01 = 0;
     float numEnemy02 = 0;
     float numTree = 0;
@@ -28,7 +30,7 @@ public class EnemyGenerater : MonoBehaviour
 
     bool isGenerate = true;
     bool isGenerate2 = true;
-    bool isGenerateBulletEnemy;
+    bool isGenerateBulletEnemy = false;
 
     bool isTreeGenerate = true;
     bool isTreeTreeGenerate2;
@@ -77,11 +79,11 @@ public class EnemyGenerater : MonoBehaviour
             numTree = 0;
         }
 
-        if(isGenerateBulletEnemy == true)
+        if(elapsedTime > 43  && isGenerateBulletEnemy == false)
         {
-            isGenerateBulletEnemy = false;
-            BulletEnemyGenerater();
-        }
+           BulletEnemyGenerater();
+           
+        } 
 
 
 
@@ -226,9 +228,9 @@ public class EnemyGenerater : MonoBehaviour
 
     void BulletEnemyGenerater()
     {
-        Instantiate(bulletEnemy, new Vector3(-6,6,3), Quaternion.identity);
-        Instantiate(bulletEnemy, new Vector3(0,6,3), Quaternion.identity);
-        Instantiate(bulletEnemy, new Vector3(6,6,3), Quaternion.identity);
+        Instantiate(bulletEnemy, new Vector3(-6,6,10), Quaternion.identity);
+        Instantiate(bulletEnemy, new Vector3(0,6,10), Quaternion.identity);
+        Instantiate(bulletEnemy, new Vector3(6,6,10), Quaternion.identity);
     }
 
 
