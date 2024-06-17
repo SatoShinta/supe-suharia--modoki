@@ -14,9 +14,10 @@ public class EnemyGenerater : MonoBehaviour
     [SerializeField, Header("生成終了時間")] float stopTime;
     [SerializeField, Header("生成終了時間")] float stopTime2;
     [SerializeField, Header("木の生成終了時間")] float treeStopTime;
+    [SerializeField, Header("木の生成終了時間2")] float treeStopTime2;
 
-    float numEnemy1 = 0;
-    float numEnemy12 = 0;
+    float numEnemy01 = 0;
+    float numEnemy02 = 0;
     float numTree = 0;
     float numEnemy2 = 0;
     float elapsedTime = 0;
@@ -24,21 +25,38 @@ public class EnemyGenerater : MonoBehaviour
     bool isGenerate = true;
     bool isGenerate2 = true;
     bool isTreeGenerate = true;
+   public bool isTreeTreeGenerate2;
+    bool isTreeTreeGenerate3;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   
 
     // Update is called once per frame
     void Update()
     {
-        numEnemy1 += Time.deltaTime;
-        numEnemy12 += Time.deltaTime;
+        numEnemy01 += Time.deltaTime;
+        numEnemy02 += Time.deltaTime;
         numTree += Time.deltaTime;
         numEnemy2 += Time.deltaTime;
         elapsedTime += Time.deltaTime;
+
+        //ゲーム内の経過時間で動くプログラムを作る
+        if(elapsedTime > 36 && elapsedTime <= treeStopTime2)
+        {
+            isTreeTreeGenerate2 = true;
+
+            if (isTreeTreeGenerate2 == true && numTree >= treeGenerateInterval)
+            {
+                TreeGenerater2();
+                numTree = 0;
+            }
+        }
+
+
+        
+
+
+
+
 
         //isTreeGenerateがfalseの時
         if (isTreeGenerate)
@@ -57,19 +75,19 @@ public class EnemyGenerater : MonoBehaviour
         if (isGenerate)
         {
             //numEnemy1 が generateIntervalを上回った時
-            if (numEnemy1 >= generateInterval)
+            if (numEnemy01 >= generateInterval)
             {
                 //EnemyGenerater1を呼び出し、numEnemyに0を代入する
                 EnemyGenerater1();
-                numEnemy1 = 0;
+                numEnemy01 = 0;
             }
 
             //numEnemy12 が generateInterval2 を上回った時
-            if (numEnemy12 >= generateInterval2)
+            if (numEnemy02 >= generateInterval2)
             {
                 //EnemyGenerater2　を呼び出し、 numEnemy12 に0を代入する
                 EnemyGenerater2();
-                numEnemy12 = 0;
+                numEnemy02 = 0;
             }
         }
 
@@ -102,6 +120,15 @@ public class EnemyGenerater : MonoBehaviour
                 //isGanarate2フラグをfalseにする
                 isGenerate2 = false;
             }
+
+            //elapsedTime が treeStopTime2 を上回った時
+            if (elapsedTime >= treeStopTime2)
+            {
+                //isTreeTreeGenerate3 をtureにし、 isTreeTreeGenerate2 をfalseにする
+                isTreeTreeGenerate3 = true;
+                isTreeTreeGenerate2 = false;
+            }
+
         }
 
 
@@ -142,7 +169,32 @@ public class EnemyGenerater : MonoBehaviour
 
     void TreeGenerater()
     {
-        Instantiate(tree, new Vector3(0, 1, 80), Quaternion.identity); ;
+        Instantiate(tree, new Vector3(0, 1, 80), Quaternion.identity); 
+    }
+
+    void TreeGenerater2()
+    {
+        Instantiate(tree, new Vector3(-7, 1, 70), Quaternion.identity) ;
+        Instantiate(tree, new Vector3(0, 1, 70), Quaternion.identity) ;
+        Instantiate(tree, new Vector3(7, 1, 70), Quaternion.identity) ;
+    }
+
+    void TreeGenerater3()
+    {
+        Instantiate(tree, new Vector3(-4, 1, 70), Quaternion.identity);
+        Instantiate(tree, new Vector3(0, 1, 70), Quaternion.identity);
+        Instantiate(tree, new Vector3(4, 1, 70), Quaternion.identity);
+    }
+
+    void TreeGenerater4()
+    {
+        Instantiate(tree, new Vector3(-7, -2, 70), Quaternion.identity);
+        Instantiate(tree, new Vector3(-4, -2, 70), Quaternion.identity);
+        Instantiate(tree, new Vector3(-2, -2, 70), Quaternion.identity);
+        Instantiate(tree, new Vector3(0, -2, 70), Quaternion.identity);
+        Instantiate(tree, new Vector3(2, -2, 70), Quaternion.identity);
+        Instantiate(tree, new Vector3(4, -2, 70), Quaternion.identity);
+        Instantiate(tree, new Vector3(7, -2, 70), Quaternion.identity);
     }
 
 }
