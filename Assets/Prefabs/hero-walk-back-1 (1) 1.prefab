@@ -157,8 +157,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.2557276, y: 1.7981644, z: 0.18980885}
-  m_Center: {x: -0.0041185617, y: -0.19161734, z: -0.08371496}
+  m_Size: {x: 1.039869, y: 1.4986799, z: 0.18980885}
+  m_Center: {x: 0.022683024, y: -0.22725725, z: -0.08371496}
 --- !u!114 &661576788142700579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,6 +206,7 @@ MonoBehaviour:
   tenmetuCounter: 0
   cloneCounter: 0
   cloneCounter2: 0
+  cloneCounter3: 0
   hp: 5
   hpText: {fileID: 0}
   itemBoxManager: {fileID: 0}
