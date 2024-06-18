@@ -23,8 +23,8 @@ public class EnemyBulletDestroy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //もしEnemyタグかTreeタグを持ったオブジェクトに当たったら
-        if (collision.gameObject.tag == "Player")
+        //もしPlayerタグかTreeタグかBulletタグを持ったオブジェクトに当たったら
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Tree" || collision.gameObject.tag == "Bullet")
         {
             //破壊する
             Destroy(gameObject);

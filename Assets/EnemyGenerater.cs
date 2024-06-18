@@ -79,7 +79,7 @@ public class EnemyGenerater : MonoBehaviour
             numTree = 0;
         }
 
-        if(elapsedTime > 43  && isGenerateBulletEnemy == false)
+        if(elapsedTime > 44  && isGenerateBulletEnemy == false)
         {
            BulletEnemyGenerater();
            
@@ -171,7 +171,10 @@ public class EnemyGenerater : MonoBehaviour
                 //isTreeTreeGenerate4 ‚ğture‚É‚µA isTreeTreeGenerate3 ‚ğfalse‚É‚·‚é
                 isTreeTreeGenerate4 = true;
                 isTreeTreeGenerate3 = false;
-                isGenerateBulletEnemy = true;
+                if(elapsedTime >= treeStopTime3 + 1)
+                {
+                    isGenerateBulletEnemy = true;
+                }
             }
 
             //elapsedTime ‚ª treeStopTime4 ‚ğã‰ñ‚Á‚½
@@ -256,13 +259,13 @@ public class EnemyGenerater : MonoBehaviour
 
     void TreeGenerater4()
     {
-        Instantiate(tree, new Vector3(-7, -2, 70), Quaternion.identity);
-        Instantiate(tree, new Vector3(-4, -2, 70), Quaternion.identity);
-        Instantiate(tree, new Vector3(-2, -2, 70), Quaternion.identity);
-        Instantiate(tree, new Vector3(0, -2, 70), Quaternion.identity);
-        Instantiate(tree, new Vector3(2, -2, 70), Quaternion.identity);
-        Instantiate(tree, new Vector3(4, -2, 70), Quaternion.identity);
-        Instantiate(tree, new Vector3(7, -2, 70), Quaternion.identity);
+        Instantiate(tree, new Vector3(-7, -4, 70), Quaternion.identity);
+        Instantiate(tree, new Vector3(-4, -4, 70), Quaternion.identity);
+        Instantiate(tree, new Vector3(-2, -4, 70), Quaternion.identity);
+        Instantiate(tree, new Vector3(0, -4, 70), Quaternion.identity);
+        Instantiate(tree, new Vector3(2, -4, 70), Quaternion.identity);
+        Instantiate(tree, new Vector3(4, -4, 70), Quaternion.identity);
+        Instantiate(tree, new Vector3(7, -4, 70), Quaternion.identity);
     }
     
     void TreeGenerater5()
