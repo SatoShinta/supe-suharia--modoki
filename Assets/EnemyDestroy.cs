@@ -35,7 +35,7 @@ public class EnemyDestroy : MonoBehaviour
         }
 
         //counter‚ª4ˆÈã‚É‚È‚Á‚½‚ç
-        if (counter >= 4)
+        if (counter >= 3)
         {
             //”j‰ó‚·‚é
             Destroy(gameObject);

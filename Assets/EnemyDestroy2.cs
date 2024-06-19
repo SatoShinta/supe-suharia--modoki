@@ -29,7 +29,7 @@ void Update()
         Destroy(gameObject);
     }
     //counter‚ª5‚æ‚è‘å‚«‚­‚È‚Á‚½‚Æ‚«
-    if (counter >= 5)
+    if (counter >= 4)
     {
         //”j‰ó‚·‚é
         Destroy(gameObject);
