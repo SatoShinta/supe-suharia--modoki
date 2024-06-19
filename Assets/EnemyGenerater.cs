@@ -31,6 +31,7 @@ public class EnemyGenerater : MonoBehaviour
     bool isGenerate = true;
     bool isGenerate2 = true;
     bool isGenerateBulletEnemy = false;
+    bool isGenerateBulletEnemy2 = false;
 
     bool isTreeGenerate = true;
     bool isTreeTreeGenerate2;
@@ -82,6 +83,12 @@ public class EnemyGenerater : MonoBehaviour
         if(elapsedTime > 44  && isGenerateBulletEnemy == false)
         {
            BulletEnemyGenerater();
+           
+        } 
+        
+        if(elapsedTime > 52  && isGenerateBulletEnemy2 == false)
+        {
+           BulletEnemyGenerater2();
            
         } 
 
@@ -183,6 +190,10 @@ public class EnemyGenerater : MonoBehaviour
                 //isTreeTreeGenerate4 ÇtureÇ…ÇµÅA isTreeTreeGenerate3 ÇfalseÇ…Ç∑ÇÈ
                 isTreeTreeGenerate5 = true;
                 isTreeTreeGenerate4 = false;
+                if(elapsedTime>=treeStopTime4 + 2)
+                {
+                    isGenerateBulletEnemy2 = true;
+                }
             }
             
             //elapsedTime Ç™ treeStopTime5 Çè„âÒÇ¡ÇΩéû
@@ -231,9 +242,16 @@ public class EnemyGenerater : MonoBehaviour
 
     void BulletEnemyGenerater()
     {
-        Instantiate(bulletEnemy, new Vector3(-6,6,10), Quaternion.identity);
-        Instantiate(bulletEnemy, new Vector3(0,6,10), Quaternion.identity);
-        Instantiate(bulletEnemy, new Vector3(6,6,10), Quaternion.identity);
+        Instantiate(bulletEnemy, new Vector3(-6,6,15), Quaternion.identity);
+        Instantiate(bulletEnemy, new Vector3(0,6,15), Quaternion.identity);
+        Instantiate(bulletEnemy, new Vector3(6,6,15), Quaternion.identity);
+    } 
+    
+    void BulletEnemyGenerater2()
+    {
+        Instantiate(bulletEnemy, new Vector3(-7,1,15), Quaternion.identity);
+        Instantiate(bulletEnemy, new Vector3(0,1,15), Quaternion.identity);
+        Instantiate(bulletEnemy, new Vector3(7,1,15), Quaternion.identity);
     }
 
 
