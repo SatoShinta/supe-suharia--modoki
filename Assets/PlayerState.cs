@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerState : MonoBehaviour
 {
@@ -26,6 +27,8 @@ public class PlayerState : MonoBehaviour
     [SerializeField] Text hpText;
     [SerializeField] GameObject itemBoxManager;
     [SerializeField, Header("クローン")] GameObject clone;
+    [SerializeField, Header("テキストメッシュプロ")] TMPro.TMP_Text text;
+    [SerializeField, Header("テキストメッシュプロ")] GameObject texto;
 
     
 
@@ -67,6 +70,9 @@ public class PlayerState : MonoBehaviour
             //このscriptをアタッチしているobjectを破壊する
             Destroy(gameObject);
             Debug.Log("ヤラレチャッタ");
+            texto.SetActive(true);
+            text.text = "Game Over";
+            Time.timeScale = 0;
         }
 
         //timerの値が10よりも大きくなったら
