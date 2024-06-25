@@ -148,6 +148,12 @@ public class PlayerState : MonoBehaviour
             }
         }
 
+        //もしボスと衝突したら
+        if (collision.gameObject.CompareTag("Boss"))
+        {
+            Destroy(gameObject);
+        }
+
         //もしisDamageフラグとcoloutinOKフラグがtrueだった時、
         if (isDamage && !coloutinOK)
         {
