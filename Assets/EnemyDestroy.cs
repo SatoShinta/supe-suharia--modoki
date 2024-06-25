@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyDestroy : MonoBehaviour
 {
     [SerializeField] public float counter = 0;
+    float timer = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,12 +16,15 @@ public class EnemyDestroy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer += Time.deltaTime;
+
         //このオブジェクトのz軸の位置が‐10に以下になったら
-        if (transform.position.z <= -10)
+        if (transform.position.z <= -10 || timer >= 8f)
         {
             //破壊する
             Destroy(gameObject);
         }
+       
     }
 
 

@@ -30,7 +30,7 @@ public class BossDestroy : MonoBehaviour
         }
 
         //counter‚ª4ˆÈã‚É‚È‚Á‚½‚ç
-        if (counter >= 100)
+        if (counter >= 50)
         {
             //”j‰ó‚·‚é
             Destroy(gameObject);

@@ -62,7 +62,7 @@ public class PlayerState : MonoBehaviour
             timer2 += Time.deltaTime;
         }
 
-
+       
 
         //hpの値が0より小さくなったら(HPが０になったら)
         if (hp <= 0)
@@ -73,6 +73,7 @@ public class PlayerState : MonoBehaviour
             texto.SetActive(true);
             text.text = "Game Over";
             Time.timeScale = 0;
+            hpText.enabled = false;
         }
 
         //timerの値が10よりも大きくなったら
@@ -151,7 +152,7 @@ public class PlayerState : MonoBehaviour
         //もしボスと衝突したら
         if (collision.gameObject.CompareTag("Boss"))
         {
-            Destroy(gameObject);
+            hp -= 10;
         }
 
         //もしisDamageフラグとcoloutinOKフラグがtrueだった時、

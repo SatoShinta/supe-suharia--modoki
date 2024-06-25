@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyBulletDestroy : MonoBehaviour
@@ -24,7 +25,7 @@ public class EnemyBulletDestroy : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         //もしPlayerタグかTreeタグかBulletタグを持ったオブジェクトに当たったら
-        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Tree" || collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Tree" || collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Boss")
         {
             //破壊する
             Destroy(gameObject);

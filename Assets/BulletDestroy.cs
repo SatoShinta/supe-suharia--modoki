@@ -24,7 +24,7 @@ public class BulletDestroy : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         //もしEnemyタグかTreeタグを持ったオブジェクトに当たったら
-        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Tree")
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Tree" || collision.gameObject.tag == "Boss")
         {
             //破壊する
             Destroy(gameObject);

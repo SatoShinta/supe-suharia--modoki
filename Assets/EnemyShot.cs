@@ -19,17 +19,22 @@ public class EnemyShot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.LookAtを使用しplayerの位置を取得し常に向くようにする
-        transform.LookAt(player.transform);
-
         //time変数にゲーム時間を代入していき
         time -= Time.deltaTime;
+
+        if (player != null)
+        {
+            //transform.LookAtを使用しplayerの位置を取得し常に向くようにする
+            transform.LookAt(player.transform);
+        }
+
+       
         //1秒たったら
         if(time <= 0f)
         {
             //BulletShotメソッドを呼び出し、time変数の値を0にする
             BulletShot();
-            time = 1.0f;
+            time = 0.6f;
         }
     }
 

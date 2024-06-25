@@ -139,7 +139,7 @@ MonoBehaviour:
   bullet: {fileID: 1991224420224541053, guid: d60641146af9e354183a63644b0b4821, type: 3}
   player: {fileID: 0}
   mazzle: {fileID: 6084979136133102653}
-  bulletSpeed: 10
+  bulletSpeed: 15
 --- !u!65 &5516418088411800362
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Tree
   - Item
+  - Boss
   layers:
   - Default
   - TransparentFX

@@ -21,6 +21,6 @@ public class ItemBoxmaneger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("getItem = " + getItem);
+       
     }
 }
