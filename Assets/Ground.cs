@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Ground : MonoBehaviour
@@ -8,6 +9,8 @@ public class Ground : MonoBehaviour
     //このスクリプトをアタッチしているオブジェクトのマテリアルを参照する
     private Material material;
     public GameObject player;
+
+    private float elapsedTime = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,16 +35,19 @@ public class Ground : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        elapsedTime += Time.deltaTime;
+
         if (player != null)
         {
             //マテリアルのoffsetを常に更新し続ける
             //（セットされているテクスチャーはテクスチャーの設定のほうでループするようになっている）
             material.mainTextureOffset += new Vector2(0, Time.deltaTime * speed);
+            if(elapsedTime > 64f)
+            {
+                speed = -2f;
+            }
         }
         
-        if(player == null)
-        {
-            material.mainTextureOffset += new Vector2(0, 0);
-        }
+        
     }
 }
