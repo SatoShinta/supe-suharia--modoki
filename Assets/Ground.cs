@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Ground : MonoBehaviour
@@ -12,8 +11,10 @@ public class Ground : MonoBehaviour
 
     private float elapsedTime = 0f;
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
+        elapsedTime = 0;
+
         //このオブジェクトにアタッチされたRendereコンポーネントを取得する
       Renderer renderer = GetComponent<Renderer>();
 

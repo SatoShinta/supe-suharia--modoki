@@ -8,9 +8,9 @@ public class EnemyMove : MonoBehaviour
 
     float elapsedTime = 0;
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
-        
+        elapsedTime = 0;
     }
 
     // Update is called once per frame

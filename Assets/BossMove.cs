@@ -11,9 +11,10 @@ public class BossMove : MonoBehaviour
 
     float elapsedTime = 0;
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
-
+        timer = 0;
+        elapsedTime = 0;
     }
 
     // Update is called once per frame

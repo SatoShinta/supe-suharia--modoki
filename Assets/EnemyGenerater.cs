@@ -43,7 +43,24 @@ public class EnemyGenerater : MonoBehaviour
     bool isTreeTreeGenerate4;
     bool isTreeTreeGenerate5;
 
-   
+
+    private void Start()
+    {
+        numEnemy01 = 0;
+        numEnemy02 = 0;
+        numTree = 0;
+        numEnemy2 = 0;
+        elapsedTime = 0;
+        counter = 0;
+        isGenerate = true;
+        isGenerate2 = true;
+        isGenerateBulletEnemy = false;
+        isGenerateBulletEnemy2 = false;
+        isGenerateBossEnemy = true;
+       
+       
+    }
+
 
     // Update is called once per frame
     void Update()

@@ -11,7 +11,7 @@ public class EnemyShot : MonoBehaviour
     float time = 1;
 
 
-    private void Start()
+    private void OnEnable()
     {
         player = GameObject.FindGameObjectWithTag("Player");
     }

@@ -136,6 +136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counter: 0
+  effectPrefab: {fileID: 8720588213322620034, guid: 3bebcf88d6cd0c949a7a6547f3ea7327, type: 3}
+  sound: {fileID: 8300000, guid: 433d51d24c0851a4ea8d2b69298e6d43, type: 3}
 --- !u!65 &5516418088411800362
 BoxCollider:
   m_ObjectHideFlags: 0

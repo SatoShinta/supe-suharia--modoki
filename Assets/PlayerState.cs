@@ -15,7 +15,7 @@ public class PlayerState : MonoBehaviour
 
     private float timer;
     private float timer2;
-    private float timer3;
+   
 
     private GameObject instantiatedClone;
     private GameObject instantiatedClone2;
@@ -32,12 +32,15 @@ public class PlayerState : MonoBehaviour
 
     
 
-    public void Start()
+    public void OnEnable()
     {
         //変数objにEnemyタグを持ったobjectの情報を取得する
         GameObject obj = GameObject.FindGameObjectWithTag("Enemy");
         //enemyDestroyCounterにEnemyタグを持ったobjectのEnemyDestroyコンポーネントを取得する
         enemyDestroyCounter = obj.GetComponent<EnemyDestroy>();
+        timer = 0;
+        timer2 = 0;
+        Time.timeScale = 1;
     }
 
 
@@ -46,7 +49,7 @@ public class PlayerState : MonoBehaviour
     {
         //画面に表示するHPの値
         hpText.GetComponent<Text>().text = "HP : " + hp.ToString();
-        Debug.Log(Time.time);
+        
 
         //cloneCounterの値が1の時
         if (cloneCounter == 1)

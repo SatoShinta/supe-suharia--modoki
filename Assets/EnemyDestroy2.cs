@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class EnemyDestroy2 : MonoBehaviour
@@ -9,11 +9,14 @@ public class EnemyDestroy2 : MonoBehaviour
 { 
  [SerializeField] public float counter;
     private float timer;
+    public GameObject effectPrefab;
+    public AudioClip sound;
 
-// Start is called before the first frame update
-void Start()
+
+    // Start is called before the first frame update
+    void OnEnable()
 {
-
+        timer = 0;
 }
 
 // Update is called once per frame
@@ -33,7 +36,10 @@ void Update()
     {
         //”j‰ó‚·‚é
         Destroy(gameObject);
-    }
+            GameObject effect = Instantiate(effectPrefab, transform.position, Quaternion.identity);
+            Destroy(effect, 0.5f);
+            AudioSource.PlayClipAtPoint(sound, transform.position);
+        }
 }
 
 

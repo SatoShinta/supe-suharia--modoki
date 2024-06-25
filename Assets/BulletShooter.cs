@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BulletShooter : MonoBehaviour
@@ -8,12 +9,13 @@ public class BulletShooter : MonoBehaviour
     [SerializeField, Header("玉の速度")] private float bulletSpeed;
     [SerializeField, Header("発射間隔")] private float shootTimer;
     private float timer = 0;
+    public AudioClip sound;
 
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
-        
+        timer = 0;
     }
 
     // Update is called once per frame
@@ -37,8 +39,10 @@ public class BulletShooter : MonoBehaviour
         //スペースキーが押されたとき
         if (Input.GetKey(KeyCode.Space))
         {
+            AudioSource.PlayClipAtPoint(sound, transform.position);
+
             //GameObject型のshootBullet変数に生成する弾をセットする
-           GameObject shootBullet = Instantiate(bullet, transform.position, Quaternion.identity);
+            GameObject shootBullet = Instantiate(bullet, transform.position, Quaternion.identity);
 
             //セットした弾のRigidBodyを取得し
             Rigidbody bulletRigitbody = shootBullet.GetComponent<Rigidbody>();

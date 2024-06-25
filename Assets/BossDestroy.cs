@@ -5,7 +5,13 @@ using UnityEngine;
 public class BossDestroy : MonoBehaviour
 {
     [SerializeField] public float counter = 0;
+    public GameObject effectPrefab;
+    public AudioClip sound;
 
+    private void OnEnable()
+    {
+        counter = 0;
+    }
 
     // Update is called once per frame
     void Update()
@@ -34,6 +40,9 @@ public class BossDestroy : MonoBehaviour
         {
             //”j‰ó‚·‚é
             Destroy(gameObject);
+            GameObject effect = Instantiate(effectPrefab, transform.position, Quaternion.identity);
+            Destroy(effect, 0.5f);
+            AudioSource.PlayClipAtPoint(sound, transform.position);
         }
     }
 }
