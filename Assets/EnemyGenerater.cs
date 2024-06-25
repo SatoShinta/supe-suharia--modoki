@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
 public class EnemyGenerater : MonoBehaviour
@@ -8,6 +9,7 @@ public class EnemyGenerater : MonoBehaviour
     [SerializeField,Header("敵のプレハブ")] GameObject enemy;
     [SerializeField, Header("敵のプレハブ2")] GameObject enemy2;
     [SerializeField, Header("弾を発射する敵のプレハブ")] GameObject bulletEnemy;
+    [SerializeField, Header("ボスのプレハブ")] GameObject bossEnemy;
     [SerializeField,Header("木のプレハブ")] GameObject tree;
     [SerializeField, Header("生成間隔")] float generateInterval;
     [SerializeField, Header("生成間隔2")] float generateInterval2;
@@ -27,11 +29,13 @@ public class EnemyGenerater : MonoBehaviour
     float numTree = 0;
     float numEnemy2 = 0;
     float elapsedTime = 0;
+    int counter = 0;
 
     bool isGenerate = true;
     bool isGenerate2 = true;
     bool isGenerateBulletEnemy = false;
     bool isGenerateBulletEnemy2 = false;
+    bool isGenerateBossEnemy = true;
 
     bool isTreeGenerate = true;
     bool isTreeTreeGenerate2;
@@ -49,6 +53,7 @@ public class EnemyGenerater : MonoBehaviour
         numTree += Time.deltaTime;
         numEnemy2 += Time.deltaTime;
         elapsedTime += Time.deltaTime;
+
 
         //ゲーム内の経過時間で動くプログラムを作る
         if(elapsedTime > 36 && elapsedTime <= treeStopTime2)
@@ -91,6 +96,16 @@ public class EnemyGenerater : MonoBehaviour
            BulletEnemyGenerater2();
            
         } 
+
+        if(isGenerateBossEnemy == true && elapsedTime >= 64) 
+        {
+            BossEnemy();
+            counter = 1;
+            if(counter == 1)
+            {
+                isGenerateBossEnemy = false;
+            }
+        }
 
 
 
@@ -252,6 +267,11 @@ public class EnemyGenerater : MonoBehaviour
         Instantiate(bulletEnemy, new Vector3(-7,1,15), Quaternion.identity);
         Instantiate(bulletEnemy, new Vector3(0,1,15), Quaternion.identity);
         Instantiate(bulletEnemy, new Vector3(7,1,15), Quaternion.identity);
+    }
+
+    void BossEnemy()
+    {
+        Instantiate(bossEnemy, new Vector3(0, 1, 70), Quaternion.identity);
     }
 
 
