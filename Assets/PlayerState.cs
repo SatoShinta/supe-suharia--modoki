@@ -85,7 +85,10 @@ public class PlayerState : MonoBehaviour
         if(timer3 >= 80 && hp >= 1)
         {
             texto.SetActive(true);
-            text.text = "Game Crear";
+            text.text = "Game Clear";
+            text.color = Color.yellow;
+            Time.timeScale = 0;
+            hpText.enabled = false;
         }
 
         
