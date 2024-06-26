@@ -15,6 +15,7 @@ public class PlayerState : MonoBehaviour
 
     private float timer;
     private float timer2;
+    private float timer3;
    
 
     private GameObject instantiatedClone;
@@ -49,6 +50,8 @@ public class PlayerState : MonoBehaviour
     {
         //画面に表示するHPの値
         hpText.GetComponent<Text>().text = "HP : " + hp.ToString();
+
+        timer3 += Time.deltaTime;
         
 
         //cloneCounterの値が1の時
@@ -78,6 +81,14 @@ public class PlayerState : MonoBehaviour
             Time.timeScale = 0;
             hpText.enabled = false;
         }
+
+        if(timer3 >= 80 && hp >= 1)
+        {
+            texto.SetActive(true);
+            text.text = "Game Crear";
+        }
+
+        
 
         //timerの値が10よりも大きくなったら
         if (timer >= 10f)
