@@ -169,7 +169,7 @@ public class PlayerState : MonoBehaviour
         //もしボスと衝突したら
         if (collision.gameObject.CompareTag("Boss"))
         {
-            hp -= 10;
+            hp -= 100;
         }
 
         //もしisDamageフラグとcoloutinOKフラグがtrueだった時、
