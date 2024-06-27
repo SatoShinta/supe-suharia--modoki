@@ -16,10 +16,10 @@ public class BossDestroy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //‚±‚ÌƒIƒuƒWƒFƒNƒg‚Ìz²‚ÌˆÊ’u‚ª]10‚ÉˆÈ‰º‚É‚È‚Á‚½‚ç
+        //ã“ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®zè»¸ã®ä½ç½®ãŒâ€10ã«ä»¥ä¸‹ã«ãªã£ãŸã‚‰
         if (transform.position.z <= -10)
         {
-            //”j‰ó‚·‚é
+            //ç ´å£Šã™ã‚‹
             Destroy(gameObject);
         }
     }
@@ -27,18 +27,18 @@ public class BossDestroy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //Bulletƒ^ƒO‚ğ‚Á‚½ƒIƒuƒWƒFƒNƒg‚É“–‚½‚Á‚½‚ç
+        //Bulletã‚¿ã‚°ã‚’æŒã£ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«å½“ãŸã£ãŸã‚‰
         if (collision.gameObject.tag == "Bullet")
         {
-            //counter‚ğ1‘‚â‚·
-            Debug.LogWarning("‹…‚ª“–‚½‚è‚Ü‚µ‚½");
+            //counterã‚’1å¢—ã‚„ã™
+            Debug.LogWarning("çƒãŒå½“ãŸã‚Šã¾ã—ãŸ");
             counter++;
         }
 
-        //counter‚ª4ˆÈã‚É‚È‚Á‚½‚ç
+        //counterãŒ50ä»¥ä¸Šã«ãªã£ãŸã‚‰
         if (counter >= 50)
         {
-            //”j‰ó‚·‚é
+            //ç ´å£Šã™ã‚‹
             Destroy(gameObject);
             GameObject effect = Instantiate(effectPrefab, transform.position, Quaternion.identity);
             Destroy(effect, 0.5f);
