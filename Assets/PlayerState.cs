@@ -82,7 +82,7 @@ public class PlayerState : MonoBehaviour
             hpText.enabled = false;
         }
 
-        if(timer3 >= 80 && hp >= 1)
+        if(timer3 >= 81 && hp >= 1)
         {
             texto.SetActive(true);
             text.text = "Game Clear";
